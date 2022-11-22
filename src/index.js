@@ -58,5 +58,10 @@ io.on('connection', socket => {
     });
 });
 
+app.get('/deleteallchats', (req, res) => { 
+    chat.deleteAllChats()
+        .then(res.send('Historial de chats borrados!'))
+        .catch(error => console.log(error))
+});
 server.listen(PORT);
 console.log('Server en puerto: ' + PORT);

@@ -25,5 +25,12 @@ class Chat {
             return `Hubo un error: ${error}`;
         }
     }
+    async deleteAllChats() {
+        try {
+            await fs.promises.writeFile(`./src/resources/${this.nameFile}`, '[]', 'utf-8');
+        } catch (error) {
+            return `Hubo un error: ${error}`;
+        }
+    }
 }
 export default Chat;
