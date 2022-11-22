@@ -63,5 +63,11 @@ app.get('/deleteallchats', (req, res) => {
         .then(res.send('Historial de chats borrados!'))
         .catch(error => console.log(error))
 });
+app.get('/deleteallproducts', (req, res) => { 
+    archivo.deleteAll()
+        .then(res.send('Lista de productos borrada!'))
+        .catch(error => console.log(error))
+});
+
 server.listen(PORT);
 console.log('Server en puerto: ' + PORT);
