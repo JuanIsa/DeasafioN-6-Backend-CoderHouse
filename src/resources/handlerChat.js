@@ -26,8 +26,10 @@ class Chat {
         }
     }
     async deleteAllChats() {
+        this.chatList=[]
         try {
-            await fs.promises.writeFile(`./src/resources/${this.nameFile}`, '[]', 'utf-8');
+            await fs.promises.writeFile(`./src/resources/${this.nameFile}`, JSON.stringify(this.chatList), 'utf-8');
+            console.log('Historial de chat borrado')
         } catch (error) {
             return `Hubo un error: ${error}`;
         }
